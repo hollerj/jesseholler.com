@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jesse Holler — Warm</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F6F1E7;          /* warm paper */
+    --card: #FFFDF8;
+    --ink: #2B2620;
+    --soft: #877E70;
+    --faint: #B7AD9C;
+    --line: rgba(43,38,32,0.12);
+    --accent: #C2562B;       /* terracotta */
+    --accent2: #3E6B5C;      /* deep sage */
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  html { background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+  body { min-height: 100vh; overflow-x: hidden; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
+
+  /* texture grain via subtle radial */
+  body::before { content:''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background: radial-gradient(120% 80% at 50% -10%, rgba(194,86,43,0.06), transparent 60%); }
+
+  /* ── NAV ── */
+  nav { position: fixed; top: 0; left:0; right:0; z-index: 100; background: rgba(246,241,231,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 2rem; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; font-style: italic; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { font-size: 0.82rem; color: var(--soft); text-decoration: none; transition: color 0.18s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero { position: relative; z-index: 1; min-height: 92vh; display: flex; flex-direction: column; justify-content: center; padding: 8rem 0 4rem; }
+  .hero-kicker { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.75rem; display: flex; align-items: center; gap: 0.7rem; }
+  .hero-kicker::before { content:''; width: 28px; height: 1px; background: var(--accent); }
+  h1 { font-family: var(--serif); font-size: clamp(3.5rem, 9vw, 7.5rem); font-weight: 300; line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 2rem; }
+  h1 em { font-style: italic; font-weight: 500; color: var(--accent); }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: start; margin-top: 1rem; }
+  .hero-bio p { font-family: var(--serif); font-size: 1.3rem; font-weight: 300; line-height: 1.55; color: var(--ink); }
+  .hero-bio p + p { margin-top: 1.1rem; font-size: 1.1rem; color: var(--soft); }
+  .hero-bio b { font-weight: 500; font-style: italic; color: var(--accent); }
+  .hero-side { padding-top: 0.5rem; }
+  .cta-row { display: flex; flex-direction: column; gap: 0.8rem; }
+  .btn { font-size: 0.85rem; text-decoration: none; padding: 0.9rem 1.5rem; border-radius: 100px; display: inline-flex; align-items: center; justify-content: space-between; gap: 0.5rem; transition: all 0.2s; }
+  .btn-fill { background: var(--accent); color: #fff; }
+  .btn-fill:hover { background: var(--ink); transform: translateY(-1px); }
+  .btn-line { border: 1px solid var(--line); color: var(--ink); }
+  .btn-line:hover { border-color: var(--ink); background: var(--card); }
+
+  /* terminal card — softened */
+  .term { background: #2A2620; border-radius: 14px; box-shadow: 0 20px 50px rgba(43,38,32,0.18); overflow: hidden; }
+  .term-bar { height: 38px; padding: 0 1rem; display: flex; align-items: center; gap: 0.4rem; background: #35302A; }
+  .td { width: 10px; height: 10px; border-radius: 50%; }
+  .td.r{background:#E88A5C} .td.y{background:#E8C15C} .td.g{background:#8FB89A}
+  .term-title { flex:1; text-align: center; font-family: var(--mono); font-size: 0.68rem; color: rgba(255,255,255,0.3); }
+  .term-body { padding: 1.1rem 1.35rem; font-family: var(--mono); font-size: 0.74rem; line-height: 1.85; color: #EDE6D8; overflow-x: auto; }
+  .tl { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .tp { color: #8FB89A; user-select: none; }
+  .tc { color: #EDE6D8; }
+  .to { color: rgba(237,230,216,0.5); padding-left: 1rem; }
+  .tk { color: #fff; font-weight: 500; }
+  .ts { color: #E8A86C; }
+  .tv { color: #8FB89A; }
+  .tg { height: 0.3rem; }
+  .cur { display:inline-block; width: 7px; height: 12px; background: #8FB89A; vertical-align: middle; animation: blink 1.1s step-end infinite; }
+  @keyframes blink {0%,100%{opacity:1}50%{opacity:0}}
+
+  /* ── SECTION ── */
+  .sec { position: relative; z-index: 1; padding: 5rem 0; }
+  .sec-label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent2); margin-bottom: 0.5rem; }
+  .sec-title { font-family: var(--serif); font-size: 2.4rem; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 2.5rem; }
+  .sec-title em { font-style: italic; color: var(--accent); }
+
+  /* work card */
+  .work { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 2.25rem 2.5rem; text-decoration: none; color: inherit; transition: all 0.2s; }
+  .work:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(43,38,32,0.1); border-color: rgba(194,86,43,0.4); }
+  .work-tag { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent2); margin-bottom: 0.6rem; }
+  .work-name { font-family: var(--serif); font-size: 1.9rem; font-weight: 400; margin-bottom: 0.6rem; }
+  .work-desc { font-size: 0.92rem; line-height: 1.65; color: var(--soft); max-width: 60ch; }
+  .work-go { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-size: 1.05rem; color: var(--soft); flex-shrink: 0; transition: all 0.2s; }
+  .work:hover .work-go { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  /* interests */
+  .int-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .int { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 1.75rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; min-height: 215px; transition: all 0.2s; }
+  .int:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(43,38,32,0.1); }
+  .int-icon { font-size: 1.6rem; margin-bottom: 1.1rem; }
+  .int-name { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 0.5rem; line-height: 1.05; }
+  .int-blurb { font-size: 0.92rem; line-height: 1.55; color: var(--soft); flex: 1; font-style: italic; font-family: var(--serif); }
+  .int-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  .int-fav { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+  .int-site { font-size: 0.82rem; color: var(--ink); margin-top: 0.15rem; transition: color 0.18s; }
+  .int:hover .int-site { color: var(--accent); }
+  .int-arrow { color: var(--faint); transition: color 0.18s; }
+  .int:hover .int-arrow { color: var(--accent); }
+
+  /* ── FOOTER ── */
+  footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padding: 4rem 0; text-align: center; }
+  .foot-quote { font-family: var(--serif); font-style: italic; font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 300; line-height: 1.3; max-width: 22ch; margin: 0 auto 2.5rem; }
+  .foot-quote em { color: var(--accent); font-style: normal; }
+  .foot-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1.5rem; }
+  .foot-links a { font-size: 0.82rem; color: var(--soft); text-decoration: none; transition: color 0.18s; }
+  .foot-links a:hover { color: var(--accent); }
+  .foot-copy { font-family: var(--mono); font-size: 0.68rem; color: var(--faint); }
+
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .int-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 540px) {
+    .wrap, .nav-inner { padding: 0 1.25rem; }
+    .work { grid-template-columns: 1fr; }
+    .term-body { font-size: 0.66rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+  <div class="nav-logo">Jesse Holler</div>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#interests">Interests</a>
+    <a href="https://www.linkedin.com/in/jesseholler/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div></nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-kicker">Strategy &amp; Product · Visa · San Francisco</div>
+    <h1>Jesse <em>Holler</em></h1>
+    <div class="hero-grid">
+      <div class="hero-bio">
+        <p>Payments by day, <b>builder by night</b> — and day, and nature. I work at Visa on what's next: onchain and agentic initiatives at the frontier of how money moves.</p>
+        <p>When I'm off, I'm making coffee, surfing, wandering somewhere new, and shipping experiments.</p>
+        <div class="cta-row" style="margin-top:2rem; max-width:280px;">
+          <a class="btn btn-fill" href="https://frontierpaymentslab.com" target="_blank" rel="noopener">Frontier Payments Lab <span>↗</span></a>
+          <a class="btn btn-line" href="https://www.linkedin.com/in/jesseholler/" target="_blank" rel="noopener">LinkedIn <span>↗</span></a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="term">
+          <div class="term-bar"><span class="td r"></span><span class="td y"></span><span class="td g"></span><span class="term-title">jesse — zsh</span></div>
+          <div class="term-body">
+            <div class="tl"><span class="tp">~</span><span class="tc">whoami</span></div>
+            <div class="to">jesse holler</div>
+            <div class="tg"></div>
+            <div class="tl"><span class="tp">~</span><span class="tc">cat profile.json</span></div>
+            <div class="to">{</div>
+            <div class="to">&nbsp;&nbsp;<span class="tk">"role"</span>: <span class="ts">"Strategy + Product"</span>,</div>
+            <div class="to">&nbsp;&nbsp;<span class="tk">"company"</span>: <span class="ts">"Visa"</span>,</div>
+            <div class="to">&nbsp;&nbsp;<span class="tk">"focus"</span>: [<span class="ts">"onchain"</span>, <span class="ts">"agentic"</span>],</div>
+            <div class="to">&nbsp;&nbsp;<span class="tk">"previous"</span>: [</div>
+            <div class="to">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ts">"McKinsey"</span>, <span class="ts">"Bloomberg"</span>,</div>
+            <div class="to">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ts">"Embark Aviation"</span>, <span class="ts">"Lockheed Martin"</span></div>
+            <div class="to">&nbsp;&nbsp;],</div>
+            <div class="to">&nbsp;&nbsp;<span class="tk">"edu"</span>: [</div>
+            <div class="to">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ts">"Yale"</span>, <span class="ts">"UCF"</span>,</div>
+            <div class="to">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ts">"Embark (Founding Partner)"</span></div>
+            <div class="to">&nbsp;&nbsp;],</div>
+            <div class="to">&nbsp;&nbsp;<span class="tk">"location"</span>: <span class="ts">"San Francisco"</span></div>
+            <div class="to">}</div>
+            <div class="tg"></div>
+            <div class="tl"><span class="tp">~</span><span class="tc">ls projects/</span></div>
+            <div class="to"><span class="tv">frontier-payments-lab/</span></div>
+            <div class="tg"></div>
+            <div class="tl"><span class="tp">~</span><span class="cur"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- WORK -->
+  <section class="sec" id="work">
+    <div class="sec-label">Building</div>
+    <h2 class="sec-title">Current <em>Work</em></h2>
+    <a class="work" href="https://frontierpaymentslab.com" target="_blank" rel="noopener">
+      <div>
+        <div class="work-tag">Lab · Live · 2026</div>
+        <div class="work-name">Frontier Payments Lab</div>
+        <p class="work-desc">A lab for payments research at the edge of onchain, agentic AI, and traditional finance. Intelligence dashboards, wallet primitives, and whatever comes next.</p>
+      </div>
+      <div class="work-go">↗</div>
+    </a>
+  </section>
+
+  <!-- INTERESTS -->
+  <section class="sec" id="interests">
+    <div class="sec-label">Outside the terminal</div>
+    <h2 class="sec-title">A few <em>favorite</em> things</h2>
+    <div class="int-grid">
+      <a class="int" href="https://www.thecoffeemovement.com/" target="_blank" rel="noopener">
+        <div class="int-icon">☕</div>
+        <div class="int-name">Specialty Coffee</div>
+        <p class="int-blurb">A ritual.</p>
+        <div class="int-foot"><div><div class="int-fav">A favorite</div><div class="int-site">The Coffee Movement</div></div><span class="int-arrow">↗</span></div>
+      </a>
+      <a class="int" href="https://mollusksurfshop.com/" target="_blank" rel="noopener">
+        <div class="int-icon">🏄</div>
+        <div class="int-name">Surfing</div>
+        <p class="int-blurb">Always a good day bobbing in the ocean.</p>
+        <div class="int-foot"><div><div class="int-fav">A favorite</div><div class="int-site">Mollusk Surf Shop</div></div><span class="int-arrow">↗</span></div>
+      </a>
+      <a class="int" href="https://www.abfits.com/" target="_blank" rel="noopener">
+        <div class="int-icon">🚶</div>
+        <div class="int-name">Walking to Explore</div>
+        <p class="int-blurb">Mostly meandering.</p>
+        <div class="int-foot"><div><div class="int-fav">A favorite</div><div class="int-site">AB Fits, North Beach</div></div><span class="int-arrow">↗</span></div>
+      </a>
+      <a class="int" href="https://app.visacli.sh/" target="_blank" rel="noopener">
+        <div class="int-icon">💳</div>
+        <div class="int-name">Onchain &amp; Payments</div>
+        <p class="int-blurb">Money's getting weird and I'm here for all of it.</p>
+        <div class="int-foot"><div><div class="int-fav">A favorite</div><div class="int-site">Visa CLI</div></div><span class="int-arrow">↗</span></div>
+      </a>
+      <a class="int" href="https://news.ycombinator.com/" target="_blank" rel="noopener">
+        <div class="int-icon">🌐</div>
+        <div class="int-name">New Technology</div>
+        <p class="int-blurb">A firehose.</p>
+        <div class="int-foot"><div><div class="int-fav">A favorite</div><div class="int-site">Hacker News · YC</div></div><span class="int-arrow">↗</span></div>
+      </a>
+      <a class="int" href="https://frontierpaymentslab.com" target="_blank" rel="noopener">
+        <div class="int-icon">🔨</div>
+        <div class="int-name">Building Things</div>
+        <p class="int-blurb">Ship it and see what survives contact.</p>
+        <div class="int-foot"><div><div class="int-fav">A favorite</div><div class="int-site">Frontier Payments Lab</div></div><span class="int-arrow">↗</span></div>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-quote">"The best way to understand the edge is to <em>be on it.</em>"</div>
+    <div class="foot-links">
+      <a href="https://frontierpaymentslab.com" target="_blank" rel="noopener">Lab</a>
+      <a href="https://www.linkedin.com/in/jesseholler/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:hollerj@gmail.com">Email</a>
+    </div>
+    <div class="foot-copy">© 2026 Jesse Holler · San Francisco</div>
+  </div>
+</footer>
+
+</body>
+</html>
