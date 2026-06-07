@@ -90,8 +90,8 @@
   @keyframes blink { 0%,100%{opacity:1}50%{opacity:0} }
 
   /* ── WORK ── */
-  .work-row { display: grid; grid-template-columns: auto 1fr auto; gap: 2rem; align-items: baseline; text-decoration: none; color: inherit; padding: 1.5rem 0; border-top: 1px solid var(--hair); transition: padding-left 0.2s; }
-  .work-row:hover { padding-left: 1rem; }
+  .work-row { display: grid; grid-template-columns: auto 1fr auto; gap: 2rem; align-items: baseline; text-decoration: none; color: inherit; padding: 1.5rem; border: 1px solid rgba(42,96,72,0.25); background: rgba(42,96,72,0.06); transition: background 0.2s, padding-left 0.2s; }
+  .work-row:hover { padding-left: 2rem; background: rgba(42,96,72,0.11); }
   .work-row:hover .work-name { color: var(--accent); }
   .work-idx { font-family: var(--mono); font-size: 0.8rem; color: var(--soft); }
   .work-name { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; transition: color 0.15s; }
