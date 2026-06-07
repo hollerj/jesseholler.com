@@ -90,6 +90,7 @@
     font-size: 1rem; font-weight: 300; line-height: 1.75;
     color: var(--secondary); max-width: 420px; margin-bottom: 2.5rem;
   }
+  .hero-bio p + p { margin-top: 0.85rem; }
   .hero-bio b { font-weight: 500; color: var(--text); }
   .cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 
@@ -329,9 +330,10 @@
       Strategy &amp; Product · San Francisco
     </div>
     <h1>Jesse<br><strong>Holler.</strong></h1>
-    <p class="hero-bio">
-      Payments by day, <b>builder by nature.</b> I work at Visa on what's next — onchain and agentic initiatives at the frontier of how money moves. When I'm not reshaping payments infrastructure, I'm surfing, walking new neighborhoods, and shipping experiments.
-    </p>
+    <div class="hero-bio">
+      <p>Payments by day, <b>builder by night</b> (and day, and nature). I work at Visa on what's next — onchain and agentic initiatives at the frontier of how money moves.</p>
+      <p>When I'm off, I'm making coffee, surfing, wandering somewhere new, and shipping experiments.</p>
+    </div>
     <div class="cta-row">
       <a href="https://frontierpaymentslab.com" target="_blank" rel="noopener" class="btn btn-primary">
         Frontier Payments Lab ↗
@@ -358,8 +360,14 @@
         <div class="t-out">{</div>
         <div class="t-out">&nbsp;&nbsp;<span class="t-key">"role"</span>: <span class="t-str">"Strategy + Product"</span>,</div>
         <div class="t-out">&nbsp;&nbsp;<span class="t-key">"company"</span>: <span class="t-str">"Visa"</span>,</div>
-        <div class="t-out">&nbsp;&nbsp;<span class="t-key">"focus"</span>: [<span class="t-str">"onchain"</span>, <span class="t-str">"agentic"</span>],</div>
-        <div class="t-out">&nbsp;&nbsp;<span class="t-key">"edu"</span>: <span class="t-str">"Yale"</span>,</div>
+        <div class="t-out">&nbsp;&nbsp;<span class="t-key">"focus"</span>: [</div>
+        <div class="t-out">&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"onchain"</span>,</div>
+        <div class="t-out">&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"agentic"</span></div>
+        <div class="t-out">&nbsp;&nbsp;],</div>
+        <div class="t-out">&nbsp;&nbsp;<span class="t-key">"previous"</span>: [<span class="t-str">"McKinsey"</span>, <span class="t-str">"Embark Aviation"</span>,</div>
+        <div class="t-out">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Bloomberg"</span>, <span class="t-str">"Lockheed Martin"</span>],</div>
+        <div class="t-out">&nbsp;&nbsp;<span class="t-key">"edu"</span>: [<span class="t-str">"Yale"</span>, <span class="t-str">"UCF"</span>,</div>
+        <div class="t-out">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Founding Partner, Embark Aviation"</span>],</div>
         <div class="t-out">&nbsp;&nbsp;<span class="t-key">"location"</span>: <span class="t-str">"San Francisco"</span></div>
         <div class="t-out">}</div>
         <div class="t-gap"></div>
@@ -384,7 +392,7 @@
     <div>
       <div class="proj-meta">Lab · Live · 2026</div>
       <div class="proj-name">Frontier Payments Lab</div>
-      <p class="proj-desc">A public lab for payments research at the edge of onchain, agentic AI, and traditional finance. Intelligence dashboards, wallet primitives, and whatever comes next.</p>
+      <p class="proj-desc">A lab for payments research at the edge of onchain, agentic AI, and traditional finance. Intelligence dashboards, wallet primitives, and whatever comes next.</p>
     </div>
     <div class="proj-chevron">↗</div>
   </a>
@@ -403,7 +411,7 @@
     <a href="https://www.thecoffeemovement.com/" target="_blank" rel="noopener" class="interest-card">
       <div class="int-icon">☕</div>
       <div class="int-interest">Specialty Coffee</div>
-      <p class="int-blurb">The only meeting I never cancel.</p>
+      <p class="int-blurb">A ritual. Non-negotiable.</p>
       <div class="int-footer">
         <div>
           <div class="int-site-label">A favorite</div>
@@ -416,7 +424,7 @@
     <a href="https://mollusksurfshop.com/" target="_blank" rel="noopener" class="interest-card">
       <div class="int-icon">🏄</div>
       <div class="int-interest">Surfing</div>
-      <p class="int-blurb">The ocean doesn't care about your roadmap.</p>
+      <p class="int-blurb">There's no such thing as a bad day in the water.</p>
       <div class="int-footer">
         <div>
           <div class="int-site-label">A favorite</div>
@@ -429,7 +437,7 @@
     <a href="https://www.abfits.com/" target="_blank" rel="noopener" class="interest-card">
       <div class="int-icon">🚶</div>
       <div class="int-interest">Walking to Explore</div>
-      <p class="int-blurb">Getting lost on purpose is still getting somewhere.</p>
+      <p class="int-blurb">Mostly meandering. That's the whole point.</p>
       <div class="int-footer">
         <div>
           <div class="int-site-label">A favorite</div>
@@ -455,7 +463,7 @@
     <a href="https://news.ycombinator.com/" target="_blank" rel="noopener" class="interest-card">
       <div class="int-icon">🌐</div>
       <div class="int-interest">New Technology</div>
-      <p class="int-blurb">Read enough of this and you can see five years out.</p>
+      <p class="int-blurb">A firehose. Worth every drop.</p>
       <div class="int-footer">
         <div>
           <div class="int-site-label">A favorite</div>
@@ -468,7 +476,7 @@
     <a href="https://frontierpaymentslab.com" target="_blank" rel="noopener" class="interest-card">
       <div class="int-icon">🔨</div>
       <div class="int-interest">Building Things</div>
-      <p class="int-blurb">Ship it and see what survives contact with reality.</p>
+      <p class="int-blurb">Ship it. See what survives contact.</p>
       <div class="int-footer">
         <div>
           <div class="int-site-label">A favorite</div>
