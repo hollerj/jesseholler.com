@@ -146,13 +146,13 @@
   .terminal-body {
     padding: 1.25rem 1.5rem 1.5rem;
     font-family: var(--mono); font-size: 0.78rem; line-height: 1.9;
-    color: #EBEBF5;
+    color: #EBEBF5; overflow-x: auto;
   }
   .t-line { display: flex; gap: 0.4rem; flex-wrap: wrap; }
   .t-prompt { color: #30D158; user-select: none; }
   .t-cmd { color: #EBEBF5; }
   .t-out { color: rgba(235,235,245,0.45); padding-left: 1.1rem; }
-  .t-key { color: #FF9F0A; }
+  .t-key { color: #FFFFFF; font-weight: 600; }
   .t-val { color: #64D2FF; }
   .t-str { color: #FF9F0A; }
   .t-gap { height: 0.25rem; }
@@ -298,8 +298,8 @@
 
   /* ── RESPONSIVE ──────────────────────────────── */
   @media (max-width: 860px) {
-    .hero { grid-template-columns: 1fr; padding-top: 5rem; gap: 3rem; }
-    .hero-right { display: none; }
+    .hero { grid-template-columns: 1fr; padding-top: 5rem; gap: 2.5rem; }
+    .terminal-window { max-width: 100%; }
   }
   @media (max-width: 540px) {
     nav { padding: 0 1.25rem; }
@@ -307,6 +307,8 @@
     .divider { margin: 0 1.25rem; }
     .interests-grid { grid-template-columns: 1fr; }
     footer { padding: 1.5rem 1.25rem; }
+    .terminal-body { font-size: 0.68rem; padding: 1rem 1.25rem; }
+    .terminal-chrome { height: 34px; }
   }
 </style>
 </head>
@@ -364,10 +366,14 @@
         <div class="t-out">&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"onchain"</span>,</div>
         <div class="t-out">&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"agentic"</span></div>
         <div class="t-out">&nbsp;&nbsp;],</div>
-        <div class="t-out">&nbsp;&nbsp;<span class="t-key">"previous"</span>: [<span class="t-str">"McKinsey"</span>, <span class="t-str">"Embark Aviation"</span>,</div>
-        <div class="t-out">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Bloomberg"</span>, <span class="t-str">"Lockheed Martin"</span>],</div>
-        <div class="t-out">&nbsp;&nbsp;<span class="t-key">"edu"</span>: [<span class="t-str">"Yale"</span>, <span class="t-str">"UCF"</span>,</div>
-        <div class="t-out">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Founding Partner, Embark Aviation"</span>],</div>
+        <div class="t-out">&nbsp;&nbsp;<span class="t-key">"previous"</span>: [</div>
+        <div class="t-out">&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"McKinsey"</span>, <span class="t-str">"Bloomberg"</span>,</div>
+        <div class="t-out">&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Embark Aviation"</span>, <span class="t-str">"Lockheed Martin"</span></div>
+        <div class="t-out">&nbsp;&nbsp;],</div>
+        <div class="t-out">&nbsp;&nbsp;<span class="t-key">"edu"</span>: [</div>
+        <div class="t-out">&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Yale"</span>, <span class="t-str">"UCF"</span>,</div>
+        <div class="t-out">&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Embark (Founding Partner)"</span></div>
+        <div class="t-out">&nbsp;&nbsp;],</div>
         <div class="t-out">&nbsp;&nbsp;<span class="t-key">"location"</span>: <span class="t-str">"San Francisco"</span></div>
         <div class="t-out">}</div>
         <div class="t-gap"></div>
